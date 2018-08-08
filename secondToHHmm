@@ -1,0 +1,26 @@
+function SecondsTohhmmss(totalSeconds) {
+    var hours   = Math.floor(totalSeconds / 3600);
+    var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
+    var seconds = totalSeconds - (hours * 3600) - (minutes * 60);
+    seconds = Math.round(seconds * 100) / 100
+
+    var result = (hours < 10 ?  hours : hours);
+    result += "-" + (minutes < 10 ?  minutes : minutes);
+    result += "-" + (seconds  < 10 ?  seconds : seconds);
+    var timeArr = result.split('-');
+    var outPutTimeStr = '';
+    if(timeArr[0] > 0){
+      outPutTimeStr = timeArr[0] + ' ساعت '
+    } else if(timeArr[1] > 0 ){
+      outPutTimeStr = timeArr[1] + ' دقیقه '
+    }else if(timeArr[2] > 0){
+      outPutTimeStr = timeArr[2]+ ' ثانیه '
+    } else {
+      outPutTimeStr = '۰ ثانیه'
+    }
+    return outPutTimeStr
+  }
+
+
+  // input of this function is second
+  SecondsTohhmmss(second)
